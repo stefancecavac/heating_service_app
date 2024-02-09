@@ -1,0 +1,17 @@
+.home{
+    display: flex;
+    align-items: center;
+    padding:20px
+}
+.homecenter{
+    width: 70%;
+    margin:20px;
+    border: 2px solid orangered;
+    border-radius: 5px;
+    padding:10px
+}
+.homeside{
+    width: 30%;
+    margin:20px;
+
+}

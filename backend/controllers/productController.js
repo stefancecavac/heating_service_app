@@ -12,6 +12,20 @@ const getProducts = async (req, res) => {
     }
 }
 
+const getSingleProduct = async (req, res) => {
+    const { id } = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ error: 'not a valid id' })
+    }
+    try {
+        const product = await Product.findOne({_id:id})
+        res.status(201).json(product)
+    }
+    catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+}
 const postProduct = async (req, res) => {
     try {
         const product = await Product.create(req.body)
@@ -22,16 +36,16 @@ const postProduct = async (req, res) => {
     }
 }
 
-const updateProduct = async(req, res) => {
-    const {id} = req.params
+const updateProduct = async (req, res) => {
+    const { id } = req.params
 
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(400).json({error: 'not a valid id'})
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ error: 'not a valid id' })
     }
-    try{
-        const product = await Product.findOneAndUpdate({_id : id} , 
-            {$set: req.body} ,
-            {new:true})
+    try {
+        const product = await Product.findOneAndUpdate({ _id: id },
+            { $set: req.body },
+            { new: true })
         res.status(201).json(product)
 
     }
@@ -40,14 +54,14 @@ const updateProduct = async(req, res) => {
     }
 }
 
-const deleteProduct = async(req, res) => {
-    const {id} = req.params
+const deleteProduct = async (req, res) => {
+    const { id } = req.params
 
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(400).json({error: 'not a valid id'})
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ error: 'not a valid id' })
     }
-    try{
-        const product = await Product.findOneAndDelete({_id : id})
+    try {
+        const product = await Product.findOneAndDelete({ _id: id })
         res.status(201).json(product)
 
     }
@@ -56,4 +70,4 @@ const deleteProduct = async(req, res) => {
     }
 }
 
-module.exports = {getProducts, postProduct, updateProduct, deleteProduct}
+module.exports = { getProducts, postProduct, updateProduct, deleteProduct ,getSingleProduct}
