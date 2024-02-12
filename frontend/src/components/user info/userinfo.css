@@ -1,0 +1,46 @@
+.userinfo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 10%;
+}
+.user{
+    color: white;
+    font-size: 1em;
+}
+.auth button {
+    font-size: 1em;
+    padding: 10px;
+    background-color: orangered;
+    color: rgb(253, 253, 253);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid white;
+
+}
+
+.auth button:hover {
+    cursor: pointer;
+    background-color: rgb(159, 44, 2);
+    border: 2px solid white;
+}
+
+.auth a {
+    font-size: 1em;
+    padding: 10px;
+    background-color: orangered;
+    color: rgb(253, 253, 253);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid white;
+    text-decoration: none;
+
+}
+
+.auth a:hover {
+    cursor: pointer;
+    background-color: rgb(159, 44, 2);
+    border: 2px solid white;
+}

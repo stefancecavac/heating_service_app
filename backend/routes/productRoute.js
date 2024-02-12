@@ -3,6 +3,9 @@ const router = express.Router()
 
 const {getProducts , postProduct, updateProduct, deleteProduct ,getSingleProduct} = require('../controllers/productController')
 const createMaintenance = require('../controllers/maintenanceController')
+const authentication = require('../middleware/authentication')
+
+router.use(authentication)
 
 router.get('/', getProducts)
 router.get('/:id',getSingleProduct)

@@ -3,12 +3,18 @@
     align-items: center;
     padding:20px
 }
+
+.home a{
+    text-decoration: none;
+    color: rgb(69, 69, 69);
+}
 .homecenter{
     width: 70%;
     margin:20px;
-    border: 2px solid orangered;
-    border-radius: 5px;
     padding:10px
+}
+.homecenter{
+    color: rgb(69, 69, 69);
 }
 .homeside{
     width: 30%;

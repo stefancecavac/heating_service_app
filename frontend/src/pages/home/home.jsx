@@ -6,28 +6,36 @@ import StoveCard from '../../components/stoveCard/stoveCard'
 import Aside from '../../components/aside/aside'
 
 import './home.css'
+import { useUserContext } from '../../hooks/useUserContext'
 
 const Home = () => {
     const { products, dispatch } = useProductContext()
+    const {user} = useUserContext()
 
     useEffect(() => {
-        const fetchData = async () => {
-            const response = await fetch('http://localhost:4000/api/products', {
-                headers: {
-
+        try{
+            const fetchData = async () => {
+                const response = await fetch('http://localhost:4000/api/products', {
+                    headers: {
+                        'Authorization': `Bearer ${user.token}`,
+                    }
+                })
+                const json = await response.json()
+    
+                if (response.ok) {
+                    dispatch({ type: 'SET_PRODUCTS', payload: json })
                 }
-            })
-            const json = await response.json()
-
-            if (response.ok) {
-                dispatch({ type: 'SET_PRODUCTS', payload: json })
+    
             }
-
+    
+            fetchData()
         }
+        catch(error){
+            console.log(error)
+        }
+        
 
-        fetchData()
-
-    }, [dispatch])
+    }, [dispatch , user])
 
     return (
         <div className='home'>

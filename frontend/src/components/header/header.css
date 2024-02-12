@@ -5,8 +5,10 @@ header{
     justify-content: space-between;
     box-shadow: 3px 3px 4px 1px rgba(0, 0, 0, 0.13);
     height:100px;
+    padding: 10px;
 }
 
-header h1{
+header h1,a{
     color: white;
+    text-decoration: none;
 }
